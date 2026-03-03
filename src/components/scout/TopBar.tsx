@@ -1,4 +1,4 @@
-import { BrandKey, brands } from "@/data/scoutData";
+import { BrandKey, RecencyKey, brands } from "@/data/scoutData";
 import {
   Select,
   SelectContent,
@@ -10,8 +10,8 @@ import {
 interface TopBarProps {
   activeBrand: BrandKey;
   onBrandChange: (brand: BrandKey) => void;
-  recency: string;
-  onRecencyChange: (val: string) => void;
+  recency: RecencyKey;
+  onRecencyChange: (val: RecencyKey) => void;
 }
 
 const TopBar = ({ activeBrand, onBrandChange, recency, onRecencyChange }: TopBarProps) => {

@@ -2,15 +2,17 @@ import { BrandKey, competitorCards } from "@/data/scoutData";
 
 const angleColors: Record<string, string> = {
   "Fear + Clinical": "bg-chart-2 text-primary-foreground",
-  Personalization: "bg-chart-1 text-primary-foreground",
   "Humor + Masculinity": "bg-chart-4 text-primary-foreground",
   Aspiration: "bg-chart-5 text-primary-foreground",
-  "Clean Beauty": "bg-chart-3 text-primary-foreground",
+  Personalization: "bg-chart-1 text-primary-foreground",
   "Social Proof": "bg-chart-2 text-primary-foreground",
   "Science / Authority": "bg-chart-1 text-primary-foreground",
-  "Fun + Aspiration": "bg-chart-4 text-primary-foreground",
-  "Safety + Trust": "bg-chart-3 text-primary-foreground",
   "Expert Authority": "bg-chart-1 text-primary-foreground",
+  "Clean Beauty": "bg-chart-3 text-primary-foreground",
+  "Fun + Aspiration": "bg-chart-4 text-primary-foreground",
+  "Fun + Playful": "bg-chart-4 text-primary-foreground",
+  "Safety + Trust": "bg-chart-3 text-primary-foreground",
+  "Aspiration + Health": "bg-chart-5 text-primary-foreground",
   "Aspiration + Glow": "bg-chart-5 text-primary-foreground",
   Purity: "bg-chart-3 text-primary-foreground",
 };
