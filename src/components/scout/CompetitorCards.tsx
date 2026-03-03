@@ -1,31 +1,45 @@
 import { BrandKey, competitorCards } from "@/data/scoutData";
-import { Badge } from "@/components/ui/badge";
-import { Shield } from "lucide-react";
+
+const angleColors: Record<string, string> = {
+  "Fear + Clinical": "bg-chart-2 text-primary-foreground",
+  Personalization: "bg-chart-1 text-primary-foreground",
+  "Humor + Masculinity": "bg-chart-4 text-primary-foreground",
+  Aspiration: "bg-chart-5 text-primary-foreground",
+  "Clean Beauty": "bg-chart-3 text-primary-foreground",
+  "Social Proof": "bg-chart-2 text-primary-foreground",
+  "Science / Authority": "bg-chart-1 text-primary-foreground",
+  "Fun + Aspiration": "bg-chart-4 text-primary-foreground",
+  "Safety + Trust": "bg-chart-3 text-primary-foreground",
+  "Expert Authority": "bg-chart-1 text-primary-foreground",
+  "Aspiration + Glow": "bg-chart-5 text-primary-foreground",
+  Purity: "bg-chart-3 text-primary-foreground",
+};
 
 const CompetitorCards = ({ brand }: { brand: BrandKey }) => {
   const cards = competitorCards[brand];
 
   return (
     <section>
-      <h2 className="mb-4 font-display text-lg font-semibold text-foreground">Competitor Snapshot</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Competitive Intel</p>
+      <h2 className="mt-1 text-lg font-bold text-foreground">Competitor Snapshot</h2>
+      <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
         {cards.map((c) => (
-          <div key={c.name} className="rounded-lg border border-border bg-card p-5">
-            <div className="flex items-center justify-between">
-              <h3 className="font-display text-base font-semibold text-foreground">{c.name}</h3>
+          <div key={c.name} className="bg-card p-5 shadow-card">
+            <div className="flex items-start justify-between">
+              <h3 className="text-base font-bold text-foreground">{c.name}</h3>
               {c.longestAdDays >= 60 && (
-                <Badge variant="secondary" className="gap-1 text-xs">
-                  <Shield className="h-3 w-3" /> Evergreen
-                </Badge>
+                <span className="inline-flex items-center gap-1 rounded-full bg-gold/15 px-2.5 py-0.5 text-[11px] font-semibold text-gold">
+                  Evergreen
+                </span>
               )}
             </div>
-            <p className="mt-1 text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">Angle:</span> {c.dominantAngle}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">Longest Ad:</span> {c.longestAdDays} days
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
+            <div className="mt-2 flex items-center gap-3">
+              <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${angleColors[c.dominantAngle] || "bg-secondary text-secondary-foreground"}`}>
+                {c.dominantAngle}
+              </span>
+              <span className="text-xs text-muted-foreground">{c.longestAdDays} days active</span>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
           </div>
         ))}
       </div>
