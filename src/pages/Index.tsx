@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrandKey } from "@/data/scoutData";
+import { BrandKey, RecencyKey } from "@/data/scoutData";
 import TopBar from "@/components/scout/TopBar";
 import EmotionalShiftChart from "@/components/scout/EmotionalShiftChart";
 import StatsBlock from "@/components/scout/StatsBlock";
@@ -10,13 +10,13 @@ import CompetitorCards from "@/components/scout/CompetitorCards";
 
 const Index = () => {
   const [brand, setBrand] = useState<BrandKey>("man-matters");
-  const [recency, setRecency] = useState("this-week");
+  const [recency, setRecency] = useState<RecencyKey>("this-week");
 
   return (
     <div className="min-h-screen bg-background">
       <TopBar activeBrand={brand} onBrandChange={setBrand} recency={recency} onRecencyChange={setRecency} />
       <main className="mx-auto max-w-6xl space-y-8 px-6 py-8">
-        <EmotionalShiftChart brand={brand} />
+        <EmotionalShiftChart brand={brand} recency={recency} />
         <StatsBlock brand={brand} />
         <RecommendedAction brand={brand} />
         <GapDetection brand={brand} />
