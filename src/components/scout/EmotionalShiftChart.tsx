@@ -1,32 +1,44 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { BrandKey, emotionalShiftData, emotionalAngles } from "@/data/scoutData";
 
 const colors = [
-  "hsl(220, 60%, 20%)",
-  "hsl(340, 75%, 55%)",
-  "hsl(160, 60%, 42%)",
-  "hsl(35, 92%, 55%)",
-  "hsl(270, 55%, 55%)",
+  "hsl(220, 85%, 48%)",
+  "hsl(340, 70%, 52%)",
+  "hsl(160, 55%, 40%)",
+  "hsl(35, 90%, 52%)",
+  "hsl(270, 50%, 52%)",
 ];
 
 const EmotionalShiftChart = ({ brand }: { brand: BrandKey }) => {
   const data = emotionalShiftData[brand];
 
   return (
-    <section className="rounded-lg border border-border bg-card p-6">
-      <h2 className="mb-4 font-display text-lg font-semibold text-foreground">Emotional Shift Over Time</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(214, 25%, 90%)" />
-          <XAxis dataKey="week" tick={{ fontSize: 13 }} stroke="hsl(215, 14%, 50%)" />
-          <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} tick={{ fontSize: 13 }} stroke="hsl(215, 14%, 50%)" />
-          <Tooltip formatter={(value: number) => `${value}%`} />
-          <Legend />
+    <section className="bg-card p-6 shadow-card">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">This Week</p>
+      <h2 className="mt-1 text-lg font-bold text-foreground">Emotional Shift Over Time</h2>
+      <div className="mt-6">
+        <ResponsiveContainer width="100%" height={280}>
+          <LineChart data={data}>
+            <XAxis dataKey="week" tick={{ fontSize: 12, fill: "hsl(215, 10%, 52%)" }} axisLine={false} tickLine={false} />
+            <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} tick={{ fontSize: 12, fill: "hsl(215, 10%, 52%)" }} axisLine={false} tickLine={false} width={40} />
+            <Tooltip
+              formatter={(value: number) => `${value}%`}
+              contentStyle={{ fontSize: 13, border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+            />
+            {emotionalAngles.map((angle, i) => (
+              <Line key={angle} type="monotone" dataKey={angle} stroke={colors[i]} strokeWidth={2} dot={{ r: 3.5, fill: colors[i], strokeWidth: 0 }} activeDot={{ r: 5 }} />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+        <div className="mt-4 flex flex-wrap gap-5">
           {emotionalAngles.map((angle, i) => (
-            <Line key={angle} type="monotone" dataKey={angle} stroke={colors[i]} strokeWidth={2.5} dot={{ r: 4 }} />
+            <div key={angle} className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: colors[i] }} />
+              {angle}
+            </div>
           ))}
-        </LineChart>
-      </ResponsiveContainer>
+        </div>
+      </div>
     </section>
   );
 };

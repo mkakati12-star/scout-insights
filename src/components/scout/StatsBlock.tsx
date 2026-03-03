@@ -14,16 +14,16 @@ const StatsBlock = ({ brand }: { brand: BrandKey }) => {
   return (
     <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
       {cards.map((c) => (
-        <div key={c.label} className="rounded-lg border border-border bg-card p-5">
-          <p className="text-sm font-medium text-muted-foreground">{c.label}</p>
-          <div className="mt-1 flex items-end gap-2">
-            <span className="font-display text-2xl font-bold text-foreground">{c.value}</span>
+        <div key={c.label} className="bg-card p-5 shadow-card">
+          <div className="flex items-center gap-2">
+            <span className="text-3xl font-extrabold text-foreground">{c.value}</span>
             {c.trend === "up" ? (
-              <TrendingUp className="mb-1 h-4 w-4 text-trend-up" />
+              <TrendingUp className="h-4 w-4 text-trend-up" />
             ) : (
-              <TrendingDown className="mb-1 h-4 w-4 text-trend-down" />
+              <TrendingDown className="h-4 w-4 text-trend-down" />
             )}
           </div>
+          <p className="mt-1 text-xs font-medium text-muted-foreground">{c.label}</p>
         </div>
       ))}
     </section>

@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        sans: ['"DM Sans"', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,14 +50,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        highlight: {
-          DEFAULT: "hsl(var(--highlight))",
-          foreground: "hsl(var(--highlight-foreground))",
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          foreground: "hsl(var(--navy-foreground))",
         },
         trend: {
           up: "hsl(var(--trend-up))",
           down: "hsl(var(--trend-down))",
         },
+        gold: "hsl(var(--gold))",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
@@ -81,6 +81,10 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        card: "0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px -1px rgba(0,0,0,0.06)",
+        "card-hover": "0 4px 12px 0 rgba(0,0,0,0.08)",
       },
       keyframes: {
         "accordion-down": {

@@ -16,18 +16,18 @@ interface TopBarProps {
 
 const TopBar = ({ activeBrand, onBrandChange, recency, onRecencyChange }: TopBarProps) => {
   return (
-    <header className="flex items-center justify-between border-b border-border bg-card px-6 py-3">
-      <h1 className="font-display text-2xl font-bold tracking-tight text-primary">SCOUT</h1>
+    <header className="flex items-center justify-between bg-navy px-6 py-3">
+      <h1 className="text-xl font-extrabold tracking-widest text-navy-foreground">SCOUT</h1>
 
-      <nav className="flex gap-1 rounded-lg bg-secondary p-1">
+      <nav className="flex gap-1">
         {brands.map((b) => (
           <button
             key={b.key}
             onClick={() => onBrandChange(b.key)}
-            className={`rounded-md px-4 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-full px-5 py-1.5 text-sm font-medium transition-all ${
               activeBrand === b.key
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-primary text-primary-foreground"
+                : "text-navy-foreground/60 hover:text-navy-foreground"
             }`}
           >
             {b.label}
@@ -36,7 +36,7 @@ const TopBar = ({ activeBrand, onBrandChange, recency, onRecencyChange }: TopBar
       </nav>
 
       <Select value={recency} onValueChange={onRecencyChange}>
-        <SelectTrigger className="w-[160px]">
+        <SelectTrigger className="w-[160px] border-navy-foreground/20 bg-navy text-navy-foreground text-sm">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
