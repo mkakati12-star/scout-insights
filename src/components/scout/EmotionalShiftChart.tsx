@@ -1,5 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { BrandKey, RecencyKey, emotionalShiftData, emotionalAngles } from "@/data/scoutData";
+import { BrandKey, RecencyKey, emotionalShiftData, emotionalAnglesPerBrand } from "@/data/scoutData";
 
 const colors = [
   "hsl(220, 85%, 53%)",
@@ -27,6 +27,7 @@ const CustomDot = (props: any) => {
 
 const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: RecencyKey }) => {
   const data = emotionalShiftData[brand][recency];
+  const angles = emotionalAnglesPerBrand[brand];
 
   return (
     <section className="border border-border bg-card p-6 animate-fade-switch">
@@ -64,7 +65,7 @@ const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: Rec
               itemStyle={{ color: "#fff" }}
               labelStyle={{ color: "hsl(213, 27%, 67%)" }}
             />
-            {emotionalAngles.map((angle, i) => (
+            {angles.map((angle, i) => (
               <Line
                 key={angle}
                 type="monotone"
@@ -78,7 +79,7 @@ const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: Rec
           </LineChart>
         </ResponsiveContainer>
         <div className="mt-4 flex flex-wrap gap-6">
-          {emotionalAngles.map((angle, i) => (
+          {angles.map((angle, i) => (
             <div key={angle} className="flex items-center gap-2 text-xs text-muted-foreground">
               <span
                 className="inline-block h-2 w-2 rounded-full"

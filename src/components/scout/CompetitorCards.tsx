@@ -1,20 +1,23 @@
 import { BrandKey, competitorCards } from "@/data/scoutData";
 
 const angleColors: Record<string, string> = {
-  "Fear + Clinical": "bg-chart-2/20 text-chart-2",
-  "Humor + Masculinity": "bg-chart-4/20 text-chart-4",
+  "Doctor Authority": "bg-chart-1/20 text-chart-1",
+  "Proof Over Promise": "bg-chart-2/20 text-chart-2",
+  "Taboo Breaking": "bg-chart-4/20 text-chart-4",
   Aspiration: "bg-chart-5/20 text-chart-5",
-  Personalization: "bg-chart-1/20 text-chart-1",
-  "Social Proof": "bg-chart-2/20 text-chart-2",
-  "Science / Authority": "bg-chart-1/20 text-chart-1",
-  "Expert Authority": "bg-chart-1/20 text-chart-1",
+  Transformation: "bg-chart-3/20 text-chart-3",
+  "Ingredient Anxiety": "bg-chart-1/20 text-chart-1",
+  "Indian Skin": "bg-chart-4/20 text-chart-4",
+  "Indian Skin Relevance": "bg-chart-4/20 text-chart-4",
   "Clean Beauty": "bg-chart-3/20 text-chart-3",
-  "Fun + Aspiration": "bg-chart-4/20 text-chart-4",
-  "Fun + Playful": "bg-chart-4/20 text-chart-4",
-  "Safety + Trust": "bg-chart-3/20 text-chart-3",
-  "Aspiration + Health": "bg-chart-5/20 text-chart-5",
-  "Aspiration + Glow": "bg-chart-5/20 text-chart-5",
-  Purity: "bg-chart-3/20 text-chart-3",
+  "Clinical Without Cost": "bg-chart-5/20 text-chart-5",
+  "Pollution Damage": "bg-chart-2/20 text-chart-2",
+  "Natural Ingredient Trust": "bg-chart-3/20 text-chart-3",
+  "Child Acceptance": "bg-chart-4/20 text-chart-4",
+  "Expert Validation": "bg-chart-1/20 text-chart-1",
+  "Parental Guilt": "bg-chart-2/20 text-chart-2",
+  "Academic Performance": "bg-chart-5/20 text-chart-5",
+  "Social Proof": "bg-chart-2/20 text-chart-2",
 };
 
 const CompetitorCards = ({ brand }: { brand: BrandKey }) => {
