@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <TopBar activeBrand={brand} onBrandChange={setBrand} recency={recency} onRecencyChange={setRecency} />
-      <main className="mx-auto max-w-6xl space-y-8 px-6 py-8">
+      <main key={brand} className="mx-auto max-w-6xl space-y-6 px-8 py-8 animate-fade-switch">
         <EmotionalShiftChart brand={brand} recency={recency} />
         <StatsBlock brand={brand} />
         <RecommendedAction brand={brand} />

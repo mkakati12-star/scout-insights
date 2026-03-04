@@ -2,93 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 @layer base {
   :root {
-    --background: 210 11% 97%;
-    --foreground: 220 20% 10%;
+    --background: 220 30% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card: 220 35% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover: 220 35% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 220 85% 48%;
+    --primary: 220 85% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 11% 94%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 213 27% 67%;
 
-    --muted: 210 11% 94%;
-    --muted-foreground: 215 10% 52%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 213 27% 67%;
 
-    --accent: 210 11% 94%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 220 30% 18%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 220 85% 48%;
+    --border: 215 40% 25%;
+    --input: 215 40% 25%;
+    --ring: 220 85% 53%;
 
     --radius: 0px;
 
-    --navy: 218 60% 11%;
+    --navy: 220 45% 8%;
     --navy-foreground: 0 0% 100%;
 
-    --chart-1: 220 85% 48%;
+    --chart-1: 220 85% 53%;
     --chart-2: 340 70% 52%;
-    --chart-3: 160 55% 40%;
+    --chart-3: 160 55% 45%;
     --chart-4: 35 90% 52%;
-    --chart-5: 270 50% 52%;
+    --chart-5: 270 50% 58%;
 
-    --trend-up: 160 55% 40%;
+    --trend-up: 160 55% 45%;
     --trend-down: 0 72% 52%;
-    --gold: 42 87% 52%;
+    --gold: 38 92% 50%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+    --brief-bg: 40 33% 96%;
+    --brief-foreground: 220 45% 8%;
 
-  .dark {
-    --background: 218 60% 6%;
-    --foreground: 210 40% 98%;
-    --card: 218 60% 9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 218 60% 9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 220 85% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 217 32% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 32% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 32% 17%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 32% 17%;
-    --input: 217 32% 17%;
-    --ring: 212 26% 83%;
-    --navy: 218 60% 8%;
-    --navy-foreground: 210 40% 98%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 220 30% 7%;
+    --sidebar-foreground: 213 27% 67%;
+    --sidebar-primary: 220 85% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 30% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 40% 25%;
+    --sidebar-ring: 220 85% 53%;
   }
 }
 
@@ -98,6 +67,35 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
+
+  .font-display {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes stagger-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-switch {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-stagger-up {
+  animation: stagger-up 0.5s ease-out both;
+}
+
+.animate-fade-switch {
+  animation: fade-switch 0.2s ease-out both;
 }

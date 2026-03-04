@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Syne"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -59,6 +60,10 @@ export default {
           down: "hsl(var(--trend-down))",
         },
         gold: "hsl(var(--gold))",
+        brief: {
+          DEFAULT: "hsl(var(--brief-bg))",
+          foreground: "hsl(var(--brief-foreground))",
+        },
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
@@ -83,8 +88,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        card: "0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px -1px rgba(0,0,0,0.06)",
-        "card-hover": "0 4px 12px 0 rgba(0,0,0,0.08)",
+        card: "0 1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -1px rgba(0,0,0,0.2)",
+        "card-hover": "0 4px 12px 0 rgba(0,0,0,0.4)",
+        glow: "0 0 8px 2px hsl(220 85% 53% / 0.3)",
       },
       keyframes: {
         "accordion-down": {
