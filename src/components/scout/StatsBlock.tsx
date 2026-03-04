@@ -7,23 +7,35 @@ const StatsBlock = ({ brand }: { brand: BrandKey }) => {
   const cards = [
     { label: "Dominant Angle", value: s.dominantAngle, trend: s.trends.dominantAngle },
     { label: "UGC Format %", value: `${s.ugcFormat}%`, trend: s.trends.ugcFormat },
-    { label: "Avg Longevity", value: `${s.avgLongevity} days`, trend: s.trends.avgLongevity },
+    { label: "Avg Longevity", value: `${s.avgLongevity}d`, trend: s.trends.avgLongevity },
     { label: "Evergreen Ads", value: s.evergreenAds, trend: s.trends.evergreenAds },
   ];
 
   return (
     <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-      {cards.map((c) => (
-        <div key={c.label} className="bg-card p-5 shadow-card">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-extrabold text-foreground">{c.value}</span>
+      {cards.map((c, i) => (
+        <div
+          key={c.label}
+          className="border border-border bg-card p-6 animate-stagger-up"
+          style={{ animationDelay: `${i * 100}ms` }}
+        >
+          <div className="flex items-end justify-between">
+            <span className="text-[48px] font-extrabold leading-none text-foreground lg:text-[56px]">
+              {c.value}
+            </span>
             {c.trend === "up" ? (
-              <TrendingUp className="h-4 w-4 text-trend-up" />
+              <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-trend-up/15 px-2 py-0.5 text-[10px] font-semibold text-trend-up">
+                <TrendingUp className="h-3 w-3" /> UP
+              </span>
             ) : (
-              <TrendingDown className="h-4 w-4 text-trend-down" />
+              <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-trend-down/15 px-2 py-0.5 text-[10px] font-semibold text-trend-down">
+                <TrendingDown className="h-3 w-3" /> DOWN
+              </span>
             )}
           </div>
-          <p className="mt-1 text-xs font-medium text-muted-foreground">{c.label}</p>
+          <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+            {c.label}
+          </p>
         </div>
       ))}
     </section>
