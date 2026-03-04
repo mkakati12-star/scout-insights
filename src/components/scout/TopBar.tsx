@@ -4,8 +4,8 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  SelectValue } from
+"@/components/ui/select";
 
 interface TopBarProps {
   activeBrand: BrandKey;
@@ -20,25 +20,25 @@ const TopBar = ({ activeBrand, onBrandChange, recency, onRecencyChange }: TopBar
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-2xl font-extrabold tracking-wider text-foreground">SCOUT</h1>
-          <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-            Competitor Intelligence — Mosaic Wellness
-          </p>
+          
+
+          
         </div>
 
         <nav className="flex gap-1">
-          {brands.map((b) => (
-            <button
-              key={b.key}
-              onClick={() => onBrandChange(b.key)}
-              className={`rounded-full px-5 py-1.5 text-sm font-medium transition-all duration-150 ${
-                activeBrand === b.key
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
+          {brands.map((b) =>
+          <button
+            key={b.key}
+            onClick={() => onBrandChange(b.key)}
+            className={`rounded-full px-5 py-1.5 text-sm font-medium transition-all duration-150 ${
+            activeBrand === b.key ?
+            "bg-primary text-primary-foreground" :
+            "text-muted-foreground hover:text-foreground"}`
+            }>
+            
               {b.label}
             </button>
-          ))}
+          )}
         </nav>
 
         <Select value={recency} onValueChange={onRecencyChange}>
@@ -52,8 +52,8 @@ const TopBar = ({ activeBrand, onBrandChange, recency, onRecencyChange }: TopBar
           </SelectContent>
         </Select>
       </div>
-    </header>
-  );
+    </header>);
+
 };
 
 export default TopBar;
