@@ -3,13 +3,29 @@ import { BrandKey, briefData } from "@/data/scoutData";
 import { Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 
-const CreativeDirectorBrief = ({ brand }: { brand: BrandKey }) => {
-  const initial = briefData[brand];
-  const [sections, setSections] = useState(initial);
+interface BriefSections {
+  whatWeSaw: string;
+  opportunity: string;
+  brief: string;
+  deadline: string;
+}
+
+const CreativeDirectorBrief = ({
+  brand,
+  aiOverride,
+}: {
+  brand: BrandKey;
+  aiOverride?: BriefSections;
+}) => {
+  const source = aiOverride || briefData[brand];
+  const [sections, setSections] = useState(source);
   const [prevBrand, setPrevBrand] = useState(brand);
-  if (brand !== prevBrand) {
+  const [prevOverride, setPrevOverride] = useState(aiOverride);
+
+  if (brand !== prevBrand || aiOverride !== prevOverride) {
     setPrevBrand(brand);
-    setSections(briefData[brand]);
+    setPrevOverride(aiOverride);
+    setSections(aiOverride || briefData[brand]);
   }
 
   const [copied, setCopied] = useState(false);

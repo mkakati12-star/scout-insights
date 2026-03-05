@@ -1,1 +1,4 @@
 project_id = "exouqmqaqcviacowebaj"
+
+[functions.refresh-intelligence]
+verify_jwt = false

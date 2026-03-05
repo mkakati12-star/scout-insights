@@ -99,3 +99,11 @@
 .animate-fade-switch {
   animation: fade-switch 0.2s ease-out both;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
