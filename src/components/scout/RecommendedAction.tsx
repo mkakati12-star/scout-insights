@@ -1,7 +1,7 @@
 import { BrandKey, opportunityData } from "@/data/scoutData";
 
-const RecommendedAction = ({ brand }: { brand: BrandKey }) => {
-  const lines = opportunityData[brand];
+const RecommendedAction = ({ brand, aiOverride }: { brand: BrandKey; aiOverride?: string[] }) => {
+  const lines = aiOverride || opportunityData[brand];
 
   return (
     <section className="border border-border border-l-[3px] border-l-primary bg-card p-6">

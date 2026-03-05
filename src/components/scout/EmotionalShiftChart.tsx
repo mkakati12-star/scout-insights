@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { BrandKey, RecencyKey, emotionalShiftData, emotionalAnglesPerBrand } from "@/data/scoutData";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const colors = [
   "hsl(220, 85%, 53%)",
@@ -28,6 +29,7 @@ const CustomDot = (props: any) => {
 const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: RecencyKey }) => {
   const data = emotionalShiftData[brand][recency];
   const angles = emotionalAnglesPerBrand[brand];
+  const isMobile = useIsMobile();
 
   return (
     <section className="border border-border bg-card p-6 animate-fade-switch">
@@ -37,7 +39,7 @@ const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: Rec
       <h2 className="mt-1 font-display text-xl font-bold text-foreground">Shift Over Time</h2>
       <p className="mt-0.5 text-xs text-muted-foreground">{recencyLabels[recency]}</p>
       <div className="mt-6">
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={isMobile ? 200 : 300}>
           <LineChart data={data}>
             <XAxis
               dataKey="week"
@@ -78,7 +80,7 @@ const EmotionalShiftChart = ({ brand, recency }: { brand: BrandKey; recency: Rec
             ))}
           </LineChart>
         </ResponsiveContainer>
-        <div className="mt-4 flex flex-wrap gap-6">
+        <div className="mt-4 flex flex-wrap gap-4 sm:gap-6">
           {angles.map((angle, i) => (
             <div key={angle} className="flex items-center gap-2 text-xs text-muted-foreground">
               <span
